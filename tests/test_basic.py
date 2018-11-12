@@ -1,7 +1,7 @@
 import pytest
 from mock import MagicMock
 
-from mock_resources import MockJira
+from .mock_resources import MockJira
 from patch_issue import JiraPatchIssue, RESOLVED_STATUS
 
 
