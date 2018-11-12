@@ -1,4 +1,3 @@
-import sys
 import logging
 import colored
 from functools import wraps
@@ -7,10 +6,14 @@ from contextlib import contextmanager
 
 RESOLVED_STATUS = "Done"
 
-logging.basicConfig(level=logging.DEBUG,
-                    format="[%(asctime)s] %(levelname)s %(message)s",
-                    datefmt="%H:%M:%S",
-                    stream=sys.stdout)
+
+def get_default_logger():
+    default_logger = logging.getLogger("patch_issue")
+    default_logger.setLevel(logging.WARNING)
+
+    handler = logging.StreamHandler()
+    default_logger.addHandler(handler)
+    return default_logger
 
 
 class JiraPatchIssue(object):
@@ -24,7 +27,7 @@ class JiraPatchIssue(object):
     ISSUE_KEY = NotImplemented
     DESCRIPTION = ""
 
-    def __init__(self, jira, logger=logging):
+    def __init__(self, jira, logger=get_default_logger()):
         self.jira = jira
         self.logger = logger
 
