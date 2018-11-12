@@ -13,12 +13,10 @@ class MockIssue(MagicMock):
     @cached_property
     def fields(self):
         resolution = AttrDict({})
-        status = AttrDict({"statusCategory":
-                               AttrDict({"name": "ToDo"})})
+        status = AttrDict({"statusCategory": {"name": "issue status"}})
 
         if self.issue_key == RESOLVED_STATUS:
             resolution.name = RESOLVED_STATUS
-            status.statusCategory.name = RESOLVED_STATUS
 
         return AttrDict({
             "resolution": resolution,
