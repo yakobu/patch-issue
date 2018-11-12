@@ -18,7 +18,7 @@ setup(
     url="https://github.com/yakobu/patch_issue",
     keywords="patch",
     install_requires=requirements,
-    python_requires=">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*",
+    python_requires=">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*",
     entry_points={},
     packages=find_packages("src"),
     package_dir={"": "src"},
