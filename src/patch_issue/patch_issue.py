@@ -26,6 +26,7 @@ class JiraPatchIssue(object):
 
     ISSUE_KEY = NotImplemented
     DESCRIPTION = ""
+    WAY_TO_SOLVE = ""
 
     def __init__(self, jira, logger=get_default_logger()):
         self.jira = jira
@@ -87,6 +88,17 @@ class JiraPatchIssue(object):
                                              is_resolved=is_resolved)
         self.logger.warning(styled_message)
 
+    def __str__(self):
+        issue = self.jira.issue(self.ISSUE_KEY)
+        summary = issue.fields.summary
+        is_resolved = self.resolved(issue)
+        status = issue.fields.status.statusCategory.name
+        pattern = "Issue {key}: {name} - {status}"
+
+        return self.styled_message(pattern.format(key=self.ISSUE_KEY,
+                                                  name=summary,
+                                                  status=status), is_resolved)
+
     @property
     @contextmanager
     def patch(self):
@@ -100,6 +112,9 @@ class JiraPatchIssue(object):
 
         if self.DESCRIPTION:
             self.log(message=self.description_message, is_resolved=is_resolved)
+
+        if self.WAY_TO_SOLVE and is_resolved:
+            self.log(message=self.WAY_TO_SOLVE, is_resolved=is_resolved)
 
         yield
 
