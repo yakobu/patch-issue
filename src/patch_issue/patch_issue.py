@@ -3,6 +3,7 @@ import colored
 from functools import wraps
 from contextlib import contextmanager
 
+from .mock_resources import MockJira
 
 RESOLVED_STATUS = "Done"
 
@@ -28,7 +29,7 @@ class JiraPatchIssue(object):
     DESCRIPTION = ""
     WAY_TO_SOLVE = ""
 
-    def __init__(self, jira, logger=get_default_logger()):
+    def __init__(self, jira=MockJira(), logger=get_default_logger()):
         self.jira = jira
         self.logger = logger
 
@@ -36,11 +37,12 @@ class JiraPatchIssue(object):
     def resolved(cls, issue):
         """Returns if given issue has been resolved."""
         resolution = issue.fields.resolution
+        status = issue.fields.status.statusCategory.name
 
         if not resolution:
             return False
 
-        return resolution.name == RESOLVED_STATUS
+        return resolution.name == RESOLVED_STATUS and status == RESOLVED_STATUS
 
     def start_patch_message(self, status, summary):
         """Returns start patch message.
