@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 from setuptools import setup, find_packages
 
-__version__ = "0.7.2"
+__version__ = "0.7.3"
 
 requirements = [
     "colored",
