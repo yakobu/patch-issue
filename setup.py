@@ -7,8 +7,6 @@ from setuptools import setup, find_packages
 __version__ = "0.8.1"
 
 DIR = os.path.dirname(__file__)
-with open(os.path.join(DIR, "README.rst")) as f:
-    long_description = f.read()
 
 requirements = [
     "colored",
@@ -18,7 +16,7 @@ setup(
     name='patch_issue',
     version=__version__,
     description="Track your patches easily with Jira integration",
-    long_description=long_description,
+    long_description=open(os.path.join(DIR, "README.rst")).read(),
     license="MIT",
     author="yakobu & shefer",
     author_email="ronenya4321@gmail.com",

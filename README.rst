@@ -1,10 +1,11 @@
 patch_issue
 ===========
-
 .. image:: https://travis-ci.org/yakobu/patch-issue.svg?branch=master
     :target: https://travis-ci.org/yakobu/patch-issue
 .. image:: https://coveralls.io/repos/github/yakobu/patch-issue/badge.svg?branch=master
     :target: https://coveralls.io/github/yakobu/patch-issue?branch=master
+.. image:: https://badge.fury.io/py/patch-issue.svg
+    :target: https://badge.fury.io/py/patch-issue
 
 
 Patch manager for easy tracking with integration in jira.
