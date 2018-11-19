@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 __version__ = "0.8.1"
 
 DIR = os.path.dirname(__file__)
-with open(os.path.join(DIR, "README.md")) as f:
+with open(os.path.join(DIR, "README.rst")) as f:
     long_description = f.read()
 
 requirements = [
