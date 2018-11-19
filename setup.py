@@ -19,7 +19,7 @@ setup(
     version=__version__,
     description="Track your patches easily with Jira integration",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    # long_description_content_type="text/markdown",
     license="MIT",
     author="yakobu & shefer",
     author_email="ronenya4321@gmail.com",
