@@ -1,11 +1,16 @@
 patch_issue
 ===========
+
 .. image:: https://travis-ci.org/yakobu/patch-issue.svg?branch=master
     :target: https://travis-ci.org/yakobu/patch-issue
 .. image:: https://coveralls.io/repos/github/yakobu/patch-issue/badge.svg?branch=master
     :target: https://coveralls.io/github/yakobu/patch-issue?branch=master
 .. image:: https://badge.fury.io/py/patch-issue.svg
     :target: https://badge.fury.io/py/patch-issue
+.. image:: https://img.shields.io/packagist/l/doctrine/orm.svg
+    :alt: Packagist
+    :target: https://github.com/yakobu/patch-issue
+
 
 
 Patch manager for easy tracking with integration in jira.
@@ -28,12 +33,14 @@ the issue is closed and the programmer can remove the patch easily.
 
 Important Note
 ++++++++++++++
+
 We do not encourge the usage of patches in a code segment.  
 This tool main purpose is to help programmers track their patches,  
 so they won't forget the patch in their code (long term wise).  
 
 How to install?
 ---------------
+
 Simply run:
 
 .. code-block:: console
@@ -48,8 +55,9 @@ And try to import:
 
 
 
-Ok, So how to I start?
+Ok, So how do I start?
 ----------------------
+
 First, you need to make a connection to Jira in your code,  
 and just for that there is an awesome library called -   
 yeah you guessed right - ``jira`` - [jira pypi link](https://pypi.org/project/jira/).
