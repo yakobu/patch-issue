@@ -2,7 +2,10 @@
 from __future__ import absolute_import
 from setuptools import setup, find_packages
 
-__version__ = "0.7.3"
+__version__ = "0.8.0"
+
+with open("./README.md") as f:
+    long_description = f.read()
 
 requirements = [
     "colored",
@@ -11,7 +14,9 @@ requirements = [
 setup(
     name='patch_issue',
     version=__version__,
-    description="",
+    description="Track your patches easily with Jira integration",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     license="MIT",
     author="yakobu & shefer",
     author_email="ronenya4321@gmail.com",

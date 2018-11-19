@@ -20,3 +20,4 @@ class MockJira(MagicMock):
         issue_details = self.nown_issues.get(issue_key, self.DEFAULT_ISSUE)
         return MockIssue(issue_key, issue_details.resolution,
                          issue_details.summary, issue_details.status)
+
