@@ -6,49 +6,49 @@
 Patch manager for easy tracking with integration in jira.
 
 ## Concept
-We've all put patches over patches in our code, for various reasons:
-    * Hot fixing a currently released version
-    * Temporary place-holder
-    * Or just because we felt like it - 
-      so we wouldn't have to design some complex structure.
+We've all put patches over patches in our code, for various reasons:  
+    * Hot fixing a currently released version  
+    * Temporary place-holder  
+    * Or just because we felt like it -  
+      so we wouldn't have to design some complex structure.  
 
-This is where `patch-issue` comes into play.
-We wanted to have a way of notifying the programmer 
-that the current code segment is a part of a patch - 
-using Jira issue tracking system and some kind of a logger.
-Then, later on, `patch-issue` will notify the programmer (in runtime)
-that the issue is closed and the programmer can remove the patch easily.
+This is where `patch-issue` comes into play.  
+We wanted to have a way of notifying the programmer  
+that the current code segment is a part of a patch -  
+using Jira issue tracking system and some kind of a logger.  
+Then, later on, `patch-issue` will notify the programmer (in runtime)  
+that the issue is closed and the programmer can remove the patch easily.  
 
 ### Important Note
-We do not encourge the usage of patches in a code segment.
-This tool main purpose is to help programmers track their patches,
-so they won't forget the patch in their code (long term wise).
+We do not encourge the usage of patches in a code segment.  
+This tool main purpose is to help programmers track their patches,  
+so they won't forget the patch in their code (long term wise).  
 
 ## How to install?
-Simply run:
+Simply run:  
 ```bash
 $ pip install patch-issue
 ```
-And try to import:
+And try to import:  
 ```python
 import patch_issue
 ```
 
 ## Ok, So how to I start?
-First, you need to make a connection to Jira in your code,
-and just for that there is an awesome library called - 
-yeah you guessed right - `jira` - [jira pypi link](https://pypi.org/project/jira/).
+First, you need to make a connection to Jira in your code,  
+and just for that there is an awesome library called -   
+yeah you guessed right - `jira` - [jira pypi link](https://pypi.org/project/jira/).  
 
-Here is how to make a simple connection:
-`connection.py`
+Here is how to make a simple connection:  
+`connection.py`  
 ```python
 from jira import JIRA
 
 jira_connection = JIRA(server="http://jira/", basic_auth=("username", "password"))
 ```
 
-Now you can make a new patch class:
-`patches.py`
+Now you can make a new patch class:  
+`patches.py`  
 ```python
 import logging
 
@@ -66,7 +66,7 @@ fix_connection = FixDBConnection(jira=jira_connection,
     logger=logging)  # there is also a default logger
 ```
 
-Now you can use your patch freely in your code:
+Now you can use your patch freely in your code:  
 ```python
 import .config
 from .db import DB
@@ -92,7 +92,7 @@ with fix_connection.patch:  # use patch as a context manager
 db = DB.make_connection(username, password)
 ```
 
-Now, when your code reaches to the patches, 
-a message will be logged in your logger!
-You will never miss your patches again!
+Now, when your code reaches to the patches,  
+a message will be logged in your logger!  
+You will never miss your patches again!  
 
