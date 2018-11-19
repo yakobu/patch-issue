@@ -1,10 +1,13 @@
 """Setup file for handling packaging and distribution."""
 from __future__ import absolute_import
+
+import os
 from setuptools import setup, find_packages
 
-__version__ = "0.8.0"
+__version__ = "0.8.1"
 
-with open("./README.md") as f:
+DIR = os.path.dirname(__file__)
+with open(os.path.join(DIR, "README.md")) as f:
     long_description = f.read()
 
 requirements = [
