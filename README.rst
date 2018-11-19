@@ -12,11 +12,13 @@ Patch manager for easy tracking with integration in jira.
 
 Concept
 -------
-We've all put patches over patches in our code, for various reasons:  
-    * Hot fixing a currently released version  
-    * Temporary place-holder  
-    * Or just because we felt like it - so we wouldn't have to design some
-        complex structure.
+
+We've all put patches over patches in our code, for various reasons:
+
+* Hot fixing a currently released version
+* Temporary place-holder
+* Or just because we felt like it - so we wouldn't have to design some 
+  complex structure.
 
 This is where ``patch-issue`` comes into play.
 We wanted to have a way of notifying the programmer that the current code segment
@@ -61,6 +63,7 @@ Here is how to make a simple connection:
     jira_connection = JIRA(server="http://jira/", basic_auth=("username", "password"))
 
 Now you can make a new patch class (``patches.py``):
+
 .. code-block:: python
 
     import logging
@@ -80,6 +83,7 @@ Now you can make a new patch class (``patches.py``):
 
 
 Now you can use your patch freely in your code:
+
 .. code-block:: python
 
     import .config
@@ -87,22 +91,22 @@ Now you can use your patch freely in your code:
 
     from patches import fix_connection  # import your patch instance
 
-
     ##################################################################
-
+    
     @fix_connection.patch_function  # use patch as a function decorator
     def new_connection():
         return DB.make_connection("user", "password")
-
+    
     new_connection()
-
+    
     ##################################################################
-
+    
     usename = "someuser"
     password = config.get_password()
+    
     with fix_connection.patch:  # use patch as a context manager
        password = "1234"
-
+    
     db = DB.make_connection(username, password)
 
 Now, when your code reaches to the patches,  
