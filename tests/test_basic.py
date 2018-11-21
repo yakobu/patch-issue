@@ -5,7 +5,7 @@ from attrdict import AttrDict
 from mock import MagicMock
 
 from patch_issue import JiraPatchIssue
-from patch_issue.mock_resources import MockJira
+from tests.stab_resources import MockJira
 
 Issue = namedtuple("Issue", ["key", "description", "resolution",
                              "summary", "status", "way_to_solve"])

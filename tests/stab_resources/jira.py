@@ -1,7 +1,7 @@
 from attrdict import AttrDict
 from mock import MagicMock
 
-from patch_issue.mock_resources.issue import MockIssue
+from tests.stab_resources.issue import MockIssue
 
 
 class MockJira(MagicMock):

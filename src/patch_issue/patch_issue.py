@@ -1,9 +1,8 @@
 import logging
-import colored
-from functools import wraps
 from contextlib import contextmanager
+from functools import wraps
 
-from .mock_resources import MockJira
+import colored
 
 RESOLVED_STATUS = "Done"
 
@@ -29,7 +28,7 @@ class JiraPatchIssue(object):
     DESCRIPTION = ""
     WAY_TO_SOLVE = ""
 
-    def __init__(self, jira=MockJira(), logger=get_default_logger()):
+    def __init__(self, jira, logger=get_default_logger()):
         self.jira = jira
         self.logger = logger
 
