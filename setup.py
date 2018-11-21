@@ -4,7 +4,7 @@ from __future__ import absolute_import
 import os
 from setuptools import setup, find_packages
 
-__version__ = "0.8.1"
+__version__ = "1.0.0"
 
 DIR = os.path.dirname(__file__)
 
