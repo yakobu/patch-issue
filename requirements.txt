@@ -11,7 +11,7 @@ ipaddress==1.0.22
 oauthlib==2.1.0
 pbr==5.1.0
 pycparser==2.19
-PyJWT==1.6.4
+PyJWT==2.4.0
 requests==2.20.0
 requests-oauthlib==1.0.0
 requests-toolbelt==0.8.0
